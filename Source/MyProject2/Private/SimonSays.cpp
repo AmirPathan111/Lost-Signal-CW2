@@ -24,11 +24,16 @@ void ASimonSays::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
-void ASimonSays::colourPressed(FString colour)
+void ASimonSays::colourPressed(int32 colour)
 {
-	if (GEngine)
+	/*for (TArray Arrays : puzzleOrder)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Cyan,*colour); //Prints the colour given
-	}
+		for (int32 number : Arrays)
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Number?? %d"), number));
+		}
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, "New Line");
+
+	}*/
 }
 

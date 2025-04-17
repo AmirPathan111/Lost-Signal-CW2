@@ -7,7 +7,7 @@
 ASimonSays::ASimonSays()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
 
 }
 
@@ -24,8 +24,28 @@ void ASimonSays::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
-void ASimonSays::colourPressed(int32 colour)
+void ASimonSays::colourPressed(selectableColours colour)
 {
+	if (GEngine)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, "New Line");
+		switch (colour) //What colour is clicked
+		{
+		case Red:
+			GEngine->AddOnScreenDebugMessage(-1,5.0f,FColor::Red,"ColourPressed");
+			break;
+		case Green:
+			GEngine->AddOnScreenDebugMessage(-1,5.0f,FColor::Green,"ColourPressed");
+			break;
+		case Blue:
+			GEngine->AddOnScreenDebugMessage(-1,5.0f,FColor::Blue,"ColourPressed");
+			break;
+		case Yellow:
+			GEngine->AddOnScreenDebugMessage(-1,5.0f,FColor::Yellow,"ColourPressed");
+			break;
+		}
+		
+	}
 	/*for (TArray Arrays : puzzleOrder)
 	{
 		for (int32 number : Arrays)

@@ -39,17 +39,20 @@ public:
 	ASimonSays();
 	UFUNCTION(BlueprintCallable, Category = "Puzzle")
 	void colourPressed(selectableColours colour); //Function that runs when player presses a coloured button
-	
+	UFUNCTION(BlueprintCallable, Category = "Puzzle") //Function that starts the puzzle
+	void showColours();
+	UFUNCTION(BlueprintImplementableEvent, Category = "Puzzle")
+	void puzzleCompletedEvent();
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-	
+
+	int32 index = 0;
+	int32 currentStage =0;
 	//The order that the game should be played in 
 	
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-	
-	
 	
 };

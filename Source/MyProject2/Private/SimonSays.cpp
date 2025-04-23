@@ -22,27 +22,27 @@ void ASimonSays::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
-void ASimonSays::showColours()
-{
-	for (selectableColours colour : ColourOrder[currentStage].colours) //Loops around each colour for the stage the player is current on
-	{
-		switch (colour) //Shows the specific colour on the player's screen in the order the player must reply back to 
-		{
-		case Red:
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, "Red");
-			break;
-		case Green:
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, "Green");
-			break;
-		case Blue:
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, "Blue");
-			break;
-		case Yellow:
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, "yellow");
-			break;
-		}
-	}
-}
+// void ASimonSays::showColours()
+// {
+// 	for (selectableColours colour : ColourOrder[currentStage].colours) //Loops around each colour for the stage the player is current on
+// 	{
+// 		switch (colour) //Shows the specific colour on the player's screen in the order the player must reply back to 
+// 		{
+// 		case Red:
+// 			showThisColour(selectableColours::Red);
+// 			break;
+// 		case Green:
+// 			showThisColour(selectableColours::Green);
+// 			break;
+// 		case Blue:
+// 			showThisColour(selectableColours::Blue);
+// 			break;
+// 		case Yellow:
+// 			showThisColour(selectableColours::Yellow);
+// 			break;
+// 		}
+// 	}
+// }
 
 void ASimonSays::colourPressed(selectableColours selectedColour)
 {
@@ -51,7 +51,7 @@ void ASimonSays::colourPressed(selectableColours selectedColour)
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, "Correct");
 		index++;
 	}
-	else
+	else //Player failed
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "Wrong");
 		index = 0;
@@ -65,7 +65,7 @@ void ASimonSays::colourPressed(selectableColours selectedColour)
 		{
 			currentStage++;
 			index = 0;
-			showColours();
+			//showColours();
 		}
 		else
 		{
@@ -74,13 +74,3 @@ void ASimonSays::colourPressed(selectableColours selectedColour)
 		}
 	}
 }
-
-/*for (TArray Arrays : puzzleOrder)
-{
-	for (int32 number : Arrays)
-	{
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Number?? %d"), number));
-	}
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, "New Line");
-
-}*/

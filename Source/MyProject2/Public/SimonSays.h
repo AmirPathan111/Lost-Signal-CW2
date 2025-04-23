@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Components/WidgetComponent.h"
 #include "GameFramework/Actor.h"
 #include "SimonSays.generated.h"
 
@@ -39,17 +40,19 @@ public:
 	ASimonSays();
 	UFUNCTION(BlueprintCallable, Category = "Puzzle")
 	void colourPressed(selectableColours colour); //Function that runs when player presses a coloured button
-	UFUNCTION(BlueprintCallable, Category = "Puzzle") //Function that starts the puzzle
-	void showColours();
+	//UFUNCTION(BlueprintCallable, Category = "Puzzle") //Function that starts the puzzle
+	//void showColours();
 	UFUNCTION(BlueprintImplementableEvent, Category = "Puzzle")
 	void puzzleCompletedEvent();
+	//UFUNCTION(BlueprintImplementableEvent, Category="Puzzle")
+	//void showThisColour(selectableColours colour);
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	int32 index = 0;
-	int32 currentStage =0;
-	//The order that the game should be played in 
+	int32 index = 0; //Index of what buttons the player is currently at (So if in green, pink, red and player picks green and pink then player is at index 2 and needs to find index 2 aka red)
+	int32 currentStage =0; //Current stage the player is in 
+
 	
 public:	
 	// Called every frame

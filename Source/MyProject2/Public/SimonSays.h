@@ -51,6 +51,7 @@ protected:
 	virtual void BeginPlay() override;
 
 	int32 index = 0; //Index of what buttons the player is currently at (So if in green, pink, red and player picks green and pink then player is at index 2 and needs to find index 2 aka red)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Puzzle")
 	int32 currentStage =0; //Current stage the player is in 
 
 	

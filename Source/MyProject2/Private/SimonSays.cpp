@@ -2,7 +2,6 @@
 
 
 #include "SimonSays.h"
-
 // Sets default values
 ASimonSays::ASimonSays()
 {
@@ -56,7 +55,7 @@ void ASimonSays::colourPressed(selectableColours selectedColour)
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "Wrong");
 		index = 0;
 		currentStage = 0;
-		return; //This should stop the puzzle
+		puzzleCompletedEvent(false); //Resets the puzzle
 	}
 
 	if (index >=  ColourOrder[currentStage].colours.Num()) //When player Completes a stage of the puzzle
@@ -65,12 +64,13 @@ void ASimonSays::colourPressed(selectableColours selectedColour)
 		{
 			currentStage++;
 			index = 0;
-			//showColours();
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, "Part Completed");
+			puzzleCompletedEvent(false); //Shows the next colours in the blueprint
 		}
 		else
 		{
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, "Puzzle Completed");
-			puzzleCompletedEvent(); //Triggers a blueprint that opens a door or something
+			puzzleCompletedEvent(true); //Triggers a blueprint that opens a door or something
 		}
 	}
 }

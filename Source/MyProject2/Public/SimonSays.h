@@ -43,9 +43,7 @@ public:
 	//UFUNCTION(BlueprintCallable, Category = "Puzzle") //Function that starts the puzzle
 	//void showColours();
 	UFUNCTION(BlueprintImplementableEvent, Category = "Puzzle")
-	void puzzleCompletedEvent();
-	//UFUNCTION(BlueprintImplementableEvent, Category="Puzzle")
-	//void showThisColour(selectableColours colour);
+	void puzzleCompletedEvent(bool isComplete); //False if player fails
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
